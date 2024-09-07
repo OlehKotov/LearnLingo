@@ -1,0 +1,6 @@
+.header {
+  display: grid;
+  grid-template-columns: 133px 138px 255px;
+  justify-content: space-between;
+  margin: 20px 128px;
+}

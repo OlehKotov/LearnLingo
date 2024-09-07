@@ -1,0 +1,9 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+  <symbol version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" id="log-in">
+    <g id="icomoon-ignore"></g>
+    <path fill="none"  stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="102.4" d="M640 128h51.2c71.685 0 107.53 0 134.912 13.951 24.084 12.272 43.663 31.854 55.936 55.938 13.952 27.381 13.952 63.224 13.952 134.911v358.4c0 71.685 0 107.53-13.952 134.912-12.273 24.084-31.852 43.663-55.936 55.936-27.382 13.952-63.227 13.952-134.912 13.952h-51.2"></path>
+    <path fill="none"  stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="102.4" d="M426.666 298.662l213.334 213.334M640 511.996l-213.334 213.334M640 511.996h-512"></path>
+</svg>
+</defs>
+</svg>
