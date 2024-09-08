@@ -1,0 +1,38 @@
+.footer {
+  margin: 24px 64px 32px 64px;
+  border: 1.5px dashed #f4c550;
+  border-radius: 30px;
+  width: 1312px;
+  height: 116px;
+}
+
+.tutorList {
+  padding: 40px 122px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 100px;
+}
+
+.tutorItem {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.tutorCount {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 114%;
+  letter-spacing: -0.02em;
+  color: #121417;
+  white-space: nowrap;
+}
+
+.tutorName {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: rgba(18, 20, 23, 0.7);
+  min-width: 74px;
+}
