@@ -1,0 +1,113 @@
+.main {
+  display: grid;
+  grid-template-columns: 720px 568px;
+  gap: 24px;
+  margin-left: 64px;
+  margin-right: 64px;
+}
+
+.getBlock {
+  border-radius: 30px;
+  width: 720px;
+  height: 530px;
+  background-color: #f8f8f8;
+  padding: 98px 108px 98px 64px;
+}
+
+.getBlockHeader {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 117%;
+  letter-spacing: -0.02em;
+  color: #121417;
+  width: 548px;
+}
+
+.getBlockSpan {
+  font-style: italic;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  color: #121417;
+}
+
+.getBlockSpan::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: -5px;
+  width: 106%;
+  height: 70%;
+  background-color: #fbe9ba;
+  z-index: -1;
+  border-radius: 10px;
+  animation: highlight 1s ease-out forwards;
+}
+
+@keyframes highlight {
+  from {
+    width: 0;
+    left: 0;
+    opacity: 1;
+  }
+  to {
+    width: 106%;
+    left: -5px;
+    opacity: 1;
+  }
+}
+
+.getBlockText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 137%;
+  letter-spacing: -0.02em;
+  color: #121417;
+  margin-top: 32px;
+  width: 471px;
+}
+
+.getBlockButton {
+  font-family: "Roboto", sans-serif;
+  margin-top: 64px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 156%;
+  color: #121417;
+  border-radius: 12px;
+  padding: 16px 88px;
+  width: 267px;
+  height: 60px;
+  background-color: #f4c550;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.getBlockButton:hover {
+  background-color: #ffdc86;
+}
+
+.imageBlock {
+  border-radius: 30px;
+  width: 568px;
+  height: 530px;
+  background-color: #fbe9ba;
+  position: relative;
+}
+
+.imageBlockLion {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.imageBlockMacbook {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}

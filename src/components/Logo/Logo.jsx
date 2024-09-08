@@ -3,10 +3,10 @@ import css from "./Logo.module.css";
 
 const Logo = () => {
   return (
-    <div className={css.logo}>
-        <img src='/src/assets/images/ukrain.png'/>
+    <a href='' className={css.logo}>
+        <img src='/src/assets/images/ukrain.png' alt='Ukraine'/>
         <p className={css.text}>LearnLingo</p>
-    </div>
+    </a>
   )
 }
 

@@ -7,9 +7,7 @@ const AuthButtons = () => {
     <div className={css.authButtonsWrap}>
       <button className={css.loginButton}>
         <svg width="20px" height="20px" className={css.loginButtonSvg}>
-          <use
-            xlinkHref={`${sprite}#log-in`}
-          />
+          <use xlinkHref={`${sprite}#log-in`} />
         </svg>
         Log in
       </button>
@@ -17,6 +15,5 @@ const AuthButtons = () => {
     </div>
   );
 };
-
 
 export default AuthButtons;
