@@ -1,0 +1,19 @@
+.levelList {
+    margin-top: 32px;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .levelItem {
+    border: 1px solid rgba(18, 20, 23, 0.2);
+    border-radius: 35px;
+    padding: 8px 12px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .levelItem:first-child {
+    background-color: #f4c550;
+    border: none;
+  }

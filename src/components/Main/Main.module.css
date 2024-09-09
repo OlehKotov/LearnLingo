@@ -70,6 +70,9 @@
 
 .getBlockButton {
   font-family: "Roboto", sans-serif;
+  display: block;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
   margin-top: 64px;
   font-weight: 700;
   font-size: 18px;
@@ -82,11 +85,11 @@
   background-color: #f4c550;
   position: relative;
   z-index: 1;
-  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.getBlockButton:hover {
+.getBlockButton:hover,
+.getBlockButton:active {
   background-color: #ffdc86;
 }
 

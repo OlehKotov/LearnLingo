@@ -1,8 +1,12 @@
 import React from 'react'
+import TeachersList from '../../components/TeachersList/TeachersList'
+
 
 const Teachers = () => {
   return (
-    <div>Teachers</div>
+    <div>
+      <TeachersList />
+    </div>
   )
 }
 

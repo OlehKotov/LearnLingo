@@ -1,5 +1,6 @@
 import React from "react";
 import css from "./Main.module.css";
+import { NavLink } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -14,7 +15,9 @@ const Main = () => {
           Elevate your language proficiency to new heights by connecting with
           highly qualified and experienced tutors.
         </p>
-        <button className={css.getBlockButton}>Get started</button>
+        <NavLink to="/teachers" className={css.getBlockButton}>
+        Get started
+        </NavLink>
       </div>
       <div className={css.imageBlock}>
         <img

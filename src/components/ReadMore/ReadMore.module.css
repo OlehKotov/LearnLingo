@@ -1,0 +1,70 @@
+.experience {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #121417;
+  margin-top: 16px;
+}
+
+.reviewAvatar {
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+}
+
+.reviewsContainer {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.reviewWrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.reviewName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #8a8a89;
+}
+
+.reviewRating {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #121417;
+  display: flex;
+  align-self: center;
+  gap: 8px;
+}
+
+.reviewComment {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #121417;
+  margin-top: 16px;
+}
+
+.bookTrialLessonBtn {
+  border-radius: 12px;
+  padding: 16px 48px;
+  width: 232px;
+  height: 60px;
+  background: #f4c550;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 156%;
+  color: #121417;
+  font-family: "Roboto", sans-serif;
+  margin-top: 32px;
+  transition: background-color 0.3s ease;
+}
+
+.bookTrialLessonBtn:hover,
+.bookTrialLessonBtn:active {
+  background-color: #ffdc86;
+}
