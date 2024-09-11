@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import sprite from "../../assets/icons/sprite.svg";
 import Levels from "../Levels/Levels";
 import css from "./ReadMore.module.css";
+import BaseModal from "../../shared/components/BaseModal/BaseModal";
+import BookingForm from "../BookingForm/BookingForm";
 
-const ReadMore = ({ levels, experience, reviews, avatar_url }) => {
+const ReadMore = ({ teacher }) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const {
+    name,
+    surname,
+    languages,
+    levels,
+    rating,
+    reviews,
+    price_per_hour,
+    lessons_done,
+    avatar_url,
+    lesson_info,
+    conditions,
+    experience,
+  } = teacher;
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+
+
   return (
     <div>
       <p className={css.experience}>{experience}</p>
@@ -30,7 +59,10 @@ const ReadMore = ({ levels, experience, reviews, avatar_url }) => {
         ))}
       </div>
       <Levels levels={levels} />
-      <button className={css.bookTrialLessonBtn}>Book trial lesson</button>
+      <button className={css.bookTrialLessonBtn} onClick={openModal}>Book trial lesson</button>
+      <BaseModal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <BookingForm teacher={teacher}/>
+      </BaseModal>
     </div>
   );
 };

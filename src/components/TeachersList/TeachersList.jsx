@@ -11,24 +11,34 @@ const TeachersList = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-        try {
-            const response = await axios.get('https://learnlingo-5802e-default-rtdb.firebaseio.com/teachers.json');
-            const data = response.data;
-            
-            if (data) {
-              setTeachers(Object.values(data));
-            }
-          } catch (error) {
-            setError(error);
-          } finally {
-            setLoading(false);
-          }
-        };
+      try {
+        const response = await axios.get(
+          "https://learnlingo-5802e-default-rtdb.firebaseio.com/teachers.json"
+        );
+        const data = response.data;
+
+        if (data) {
+          const fetchedTeachers = Object.entries(data).map(([key, value]) => ({
+            id: key,
+            ...value,
+          }));
+          setTeachers(fetchedTeachers);
+        }
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
     fetchData();
   }, []);
 
-  if (loading) {
+  const handleLoadMore = () => {
+    setVisibleCount((prevCount) => prevCount + 4);
+  };
+
+  if (loading && teachers.length === 0) {
     return <p>Loading...</p>;
   }
 
@@ -36,25 +46,24 @@ const TeachersList = () => {
     return <p>Error: {error.message}</p>;
   }
 
-
-return (
+  return (
     <section className={css.section}>
       <ul className={css.teachersList}>
         {teachers.length > 0 ? (
           teachers
-            .map((teacher, index) => (
-              <TeacherCard key={index} teacher={teacher} />
+            .slice(0, visibleCount)
+            .map((teacher) => (
+              <TeacherCard key={teacher.id} teacher={teacher} />
             ))
         ) : (
           <div className={css.noResults}>No teachers found</div>
         )}
       </ul>
-
-      
-        <button className={css.loadMoreButton}>
-          Load more
+      {visibleCount < teachers.length && (
+        <button className={css.loadMoreButton} onClick={handleLoadMore}>
+          Load More
         </button>
-    
+      )}
     </section>
   );
 };

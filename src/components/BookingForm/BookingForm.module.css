@@ -1,0 +1,185 @@
+.container {
+  border-radius: 30px;
+  width: 599px;
+  height: 971px;
+  background-color: #fff;
+  padding: 64px;
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #121417;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 137%;
+  color: rgba(18, 20, 23, 0.8);
+  margin-top: 20px;
+}
+
+.teacherContainer {
+  margin-top: 20px;
+  display: flex;
+  gap: 14px;
+}
+
+.avatar {
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+}
+
+.teacherHeader {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  color: #8a8a89;
+}
+
+.teacherName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #121417;
+  margin-top: 4px;
+}
+
+.variantHeader {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 133%;
+  color: #121417;
+  margin-top: 40px;
+}
+
+.radioList {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  margin-top: 21px;
+}
+
+.radioItem {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 137%;
+  text-align: center;
+  color: #121417;
+  margin-left: 8px;
+}
+
+input[type="radio"],
+label {
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  position: relative;
+  height: 22px;
+  width: 22px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+input[type="radio"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 2px solid #cecece;
+}
+
+input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: #f4c550;
+  transform: translate(-50%, -50%);
+  visibility: visible;
+}
+
+input[type="radio"]:checked::before {
+  border-color: #f4c550;
+}
+
+.radioItemWrap {
+  display: flex;
+  align-items: center;
+}
+
+.inputContainer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.bookingInput {
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px 16px 18px;
+  width: 472px;
+  height: 54px;
+  outline: none;
+  background-color: transparent;
+}
+
+.bookingInput:-webkit-autofill,
+.bookingInput:-webkit-autofill:hover,
+.bookingInput:-webkit-autofill:focus,
+.bookingInput:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
+.button {
+  border-radius: 12px;
+  padding: 16px 215px;
+  width: 472px;
+  height: 60px;
+  background: #f4c550;
+  margin-top: 40px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover,
+.button:active {
+  background-color: #ffdc86;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 90%;
+  transform: translateY(4px);
+}

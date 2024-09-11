@@ -119,10 +119,11 @@ const TeacherCard = ({ teacher }) => {
         {!isExpanded && <Levels levels={levels} />}
         {isExpanded && (
           <ReadMore
-            levels={levels}
-            experience={experience}
-            reviews={reviews}
-            avatar_url={avatar_url}
+            // levels={levels}
+            // experience={experience}
+            // reviews={reviews}
+            // avatar_url={avatar_url}
+            teacher={teacher}
           />
         )}
       </div>
