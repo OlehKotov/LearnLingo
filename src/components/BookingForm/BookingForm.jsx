@@ -3,19 +3,9 @@ import css from "./BookingForm.module.css";
 import sprite from "../../assets/icons/sprite.svg";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { bookValidationSchema } from "../../validation/bookValidationShema";
 
-const schema = yup.object().shape({
-  name: yup.string().required("Name is required"),
-  email: yup
-    .string()
-    .email("Invalid email format")
-    .required("Email is required"),
-  phone: yup.string().required("Phone number is required"),
-  reason: yup.string().required("At least one reason must be selected"),
-});
-
-const BookingForm = ({ teacher }) => {
+const BookingForm = ({ teacher, onClose }) => {
   const { name, surname, avatar_url } = teacher;
 
   const {
@@ -25,7 +15,7 @@ const BookingForm = ({ teacher }) => {
     reset,
     formState: { errors, isSubmitting },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(bookValidationSchema),
     defaultValues: {
       reason: "Career and business",
     },
@@ -38,9 +28,9 @@ const BookingForm = ({ teacher }) => {
 
   return (
     <div className={css.container}>
-      <button className={css.closeBtn} type="button">
+      <button className={css.closeBtn} type="button" onClick={onClose}>
         <svg className={css.closeIcon} width="32px" height="32px">
-          <use xlinkHref="#x" />
+          <use xlinkHref={`${sprite}#x`} />
         </svg>
       </button>
       <h1 className={css.title}>Book trial lesson</h1>

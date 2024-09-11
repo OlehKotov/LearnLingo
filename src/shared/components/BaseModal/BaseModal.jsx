@@ -16,9 +16,6 @@ const BaseModal = ({ isOpen, onRequestClose, children }) => {
     };
   }, [isOpen]);
 
-
-
-
   return (
     <Modal
       isOpen={isOpen}

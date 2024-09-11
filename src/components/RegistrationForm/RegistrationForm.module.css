@@ -1,0 +1,89 @@
+.container {
+  border-radius: 30px;
+  background-color: #fff;
+  padding: 64px;
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #121417;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 137%;
+  color: rgba(18, 20, 23, 0.8);
+  margin-top: 20px;
+}
+
+.loginForm {
+  margin-top: 40px;
+}
+
+.inputWrapper {
+  margin-top: 18px;
+  position: relative;
+}
+
+.loginInput {
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px 16px 18px;
+  width: 472px;
+  height: 54px;
+  outline: none;
+  background-color: transparent;
+  position: relative;
+}
+
+.loginInput:-webkit-autofill,
+.loginInput:-webkit-autofill:hover,
+.loginInput:-webkit-autofill:focus,
+.loginInput:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
+.button {
+  border-radius: 12px;
+  padding: 16px 16px;
+  width: 472px;
+  height: 60px;
+  background: #f4c550;
+  margin-top: 40px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover,
+.button:active {
+  background-color: #ffdc86;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 90%;
+  transform: translateY(4px);
+}
+
+.passwordToggleIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-40%);
+  cursor: pointer;
+}
