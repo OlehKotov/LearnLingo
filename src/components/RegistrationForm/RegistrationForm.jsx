@@ -1,28 +1,63 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import css from "./RegistrationForm.module.css";
 import sprite from "../../assets/icons/sprite.svg";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registrationValidationSchema } from "../../validation/registrationValidationShema";
+import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../utils/firebaseRegistration";
 
-
-
-const RegistrationForm = ({ onClose }) => {
+const RegistrationForm = ({ onClose, onRegistrationSuccess }) => {
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
+  const dispatch = useDispatch();
+
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(registrationValidationSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
   });
 
+  // const onSubmit = async (data) => {
+  //   const auth = getAuth();
+  //   try {
+  //     const userCredential = await createUserWithEmailAndPassword(
+  //       auth,
+  //       data.email,
+  //       data.password
+  //     );
+  //     const user = userCredential.user;
+
+  //     dispatch(
+  //       setUser({
+  //         name: data.name,
+  //         email: user.email,
+  //         token: user.accessToken,
+  //         id: user.uid,
+  //       })
+  //     );
+  //     onRegistrationSuccess();
+  //     reset();
+  //   } catch (error) {
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //     toast.error("Registration error. Try again.");
+  //   }
+  // };
   const onSubmit = (data) => {
-    console.log(data);
+    registerUser(data, dispatch, onRegistrationSuccess, reset);
   };
 
   return (

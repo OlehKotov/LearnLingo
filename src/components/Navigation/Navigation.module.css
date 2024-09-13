@@ -1,9 +1,9 @@
 .navigation {
-  display: grid;
-  grid-template-columns: 44px 66px;
+  display: flex;
   gap: 28px;
   align-items: center;
-  margin-left: 390px;
+  justify-content: center; /* Центрирует элементы по горизонтали */
+  margin: 0 auto;
 }
 
 .link {

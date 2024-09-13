@@ -1,4 +1,5 @@
 .header {
   display: flex;
-  margin: 20px 128px;
+  margin: 20px 64px;
+  width: 1312px;
 }

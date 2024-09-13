@@ -1,26 +1,62 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import css from "./LoginForm.module.css";
 import sprite from "../../assets/icons/sprite.svg";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { logInValidationschema } from "../../validation/logInValidationShema";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../utils/firebaseLogin";
 
-const LoginForm = ({ onClose }) => {
+const LoginForm = ({ onClose, onLoginSuccess }) => {
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
+  const dispatch = useDispatch();
+
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(logInValidationschema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
 
+  // const onSubmit = async (data) => {
+  //   const auth = getAuth();
+  //   try {
+  //     const userCredential = await signInWithEmailAndPassword(
+  //       auth,
+  //       data.email,
+  //       data.password
+  //     );
+  //     const user = userCredential.user;
+
+  //     dispatch(
+  //       setUser({
+  //         name: data.name,
+  //         email: user.email,
+  //         token: user.accessToken,
+  //         id: user.uid,
+  //       })
+  //     );
+  //     onLoginSuccess();
+  //     reset();
+  //   } catch (error) {
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //     toast.error("Login failed. Try again.");
+  //   }
+  // };
+
   const onSubmit = (data) => {
-    console.log(data);
+    loginUser(data, dispatch, onLoginSuccess, reset);
   };
 
   return (

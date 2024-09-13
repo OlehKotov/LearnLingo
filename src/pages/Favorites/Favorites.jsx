@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import DocumentTitle from "../../components/DocumentTitle/DocumentTitle";
 
 const Favorites = () => {
   return (
-    <div>Favorites</div>
-  )
-}
+    <div>
+      <DocumentTitle>Favorite Teachers Catalog</DocumentTitle>
+      Favorites
+    </div>
+  );
+};
 
-export default Favorites
+export default Favorites;
