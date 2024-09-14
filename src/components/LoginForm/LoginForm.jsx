@@ -28,33 +28,6 @@ const LoginForm = ({ onClose, onLoginSuccess }) => {
     },
   });
 
-  // const onSubmit = async (data) => {
-  //   const auth = getAuth();
-  //   try {
-  //     const userCredential = await signInWithEmailAndPassword(
-  //       auth,
-  //       data.email,
-  //       data.password
-  //     );
-  //     const user = userCredential.user;
-
-  //     dispatch(
-  //       setUser({
-  //         name: data.name,
-  //         email: user.email,
-  //         token: user.accessToken,
-  //         id: user.uid,
-  //       })
-  //     );
-  //     onLoginSuccess();
-  //     reset();
-  //   } catch (error) {
-  //     const errorCode = error.code;
-  //     const errorMessage = error.message;
-  //     toast.error("Login failed. Try again.");
-  //   }
-  // };
-
   const onSubmit = (data) => {
     loginUser(data, dispatch, onLoginSuccess, reset);
   };

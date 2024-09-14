@@ -3,8 +3,8 @@ import "./App.css";
 import Home from "../pages/Home/Home";
 import Teachers from "../pages/Teachers/Teachers";
 import Favorites from "../pages/Favorites/Favorites";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<Home />} />
       </Routes>
-      <ToastContainer />
+      <ToastContainer autoClose={1500} />
     </div>
   );
 }

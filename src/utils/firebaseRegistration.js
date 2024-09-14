@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { setUser } from "../redux/userSlice";
 import { toast } from "react-toastify";
 
@@ -11,6 +11,8 @@ export const registerUser = async (data, dispatch, onRegistrationSuccess, reset)
       data.password
     );
     const user = userCredential.user;
+
+    await updateProfile(user, { displayName: data.name });
 
     dispatch(
       setUser({

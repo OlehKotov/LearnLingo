@@ -12,9 +12,11 @@ export const loginUser = async (data, dispatch, onLoginSuccess, reset) => {
     );
     const user = userCredential.user;
 
+    await user.reload();
+
     dispatch(
       setUser({
-        name: data.name, // убедитесь, что имя действительно передается
+        name: user.displayName,
         email: user.email,
         token: user.accessToken,
         id: user.uid,

@@ -30,32 +30,6 @@ const RegistrationForm = ({ onClose, onRegistrationSuccess }) => {
     },
   });
 
-  // const onSubmit = async (data) => {
-  //   const auth = getAuth();
-  //   try {
-  //     const userCredential = await createUserWithEmailAndPassword(
-  //       auth,
-  //       data.email,
-  //       data.password
-  //     );
-  //     const user = userCredential.user;
-
-  //     dispatch(
-  //       setUser({
-  //         name: data.name,
-  //         email: user.email,
-  //         token: user.accessToken,
-  //         id: user.uid,
-  //       })
-  //     );
-  //     onRegistrationSuccess();
-  //     reset();
-  //   } catch (error) {
-  //     const errorCode = error.code;
-  //     const errorMessage = error.message;
-  //     toast.error("Registration error. Try again.");
-  //   }
-  // };
   const onSubmit = (data) => {
     registerUser(data, dispatch, onRegistrationSuccess, reset);
   };
