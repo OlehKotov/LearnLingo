@@ -10,7 +10,7 @@ import { HelmetProvider } from "react-helmet-async";
 import "./firebase";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
         <HelmetProvider>
@@ -18,5 +18,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </HelmetProvider>
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

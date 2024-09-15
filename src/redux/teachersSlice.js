@@ -1,19 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { fetchTeachers } from './teachersOps';
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchTeachers } from "./teachersOps";
 
 const teachersSlice = createSlice({
-  name: 'teachers',
+  name: "teachers",
   initialState: {
-    data: [],
+    items: [],
     loading: false,
     error: null,
-    visibleCount: 4,
+    lastVisible: null,
   },
-  reducers: {
-    incrementVisibleCount: (state) => {
-      state.visibleCount += 4;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchTeachers.pending, (state) => {
@@ -22,15 +18,14 @@ const teachersSlice = createSlice({
       })
       .addCase(fetchTeachers.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload;
+        state.items = [...state.items, ...action.payload.teachers];
+        state.lastKey = action.payload.lastKey;
       })
       .addCase(fetchTeachers.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = action.error.message;
       });
   },
 });
-
-export const { incrementVisibleCount } = teachersSlice.actions;
 
 export default teachersSlice.reducer;

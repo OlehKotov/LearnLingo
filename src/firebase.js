@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 
 
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -23,4 +24,6 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 
+const database = getDatabase(app);
 
+export { database };

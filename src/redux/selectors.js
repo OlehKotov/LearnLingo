@@ -1,27 +1,6 @@
-import { createSelector } from "@reduxjs/toolkit";
-
-export const selectTeachersState = (state) => state.teachers;
-
-export const selectTeachers = createSelector(
-  selectTeachersState,
-  (teachersState) => teachersState.data
-);
-
-export const selectLoading = createSelector(
-  selectTeachersState,
-  (teachersState) => teachersState.loading
-);
-
-export const selectError = createSelector(
-  selectTeachersState,
-  (teachersState) => teachersState.error
-);
-
-export const selectVisibleCount = createSelector(
-  selectTeachersState,
-  (teachersState) => teachersState.visibleCount
-);
+export const selectTeachers = (state) => state.teachers.items;
+export const selectLoading = (state) => state.teachers.loading;
+export const selectError = (state) => state.teachers.error;
+export const selectLastKey = (state) => state.teachers.lastKey;
 
 export const selectUser = (state) => state.user.user;
-
-
