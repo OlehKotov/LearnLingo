@@ -10,7 +10,7 @@ import {
 import { database } from "./../firebase";
 
 export const fetchTeachers = createAsyncThunk(
-  "teachers/fetchAll",
+  "teachers/fetchTeachers",
   async ({ lastKey = null }, thunkAPI) => {
     try {
       let teachersQuery = query(
@@ -33,6 +33,7 @@ export const fetchTeachers = createAsyncThunk(
           id: key,
           ...value,
         }));
+        
         const lastKey = Object.keys(data).pop();
         return { teachers, lastKey };
       } else {

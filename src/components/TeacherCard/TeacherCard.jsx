@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import css from "./TeacherCard.module.css";
 import sprite from "../../assets/icons/sprite.svg";
 import Levels from "../Levels/Levels";
 import ReadMore from "../ReadMore/ReadMore";
+import { useAuth } from "../../hooks/use-auth";
+import { toast } from "react-toastify";
+import { addFavoriteToUserFirebase } from "../../utils/firebaseAddtoFavorite";
+import { database } from "../../firebase";
+import { equalTo, get, orderByChild, query, ref } from "firebase/database";
+import { removeFavoriteFromUserFirebase } from "../../utils/firebaseRemoveFavorite";
 
-const TeacherCard = ({ teacher }) => {
+const TeacherCard = ({ teacher, onFavoriteToggle }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [favoriteKey, setFavoriteKey] = useState(null);
+
+  const { isAuth, email } = useAuth();
 
   const {
+    id,
     name,
     surname,
     languages,
@@ -23,27 +33,88 @@ const TeacherCard = ({ teacher }) => {
     experience,
   } = teacher;
 
+  useEffect(() => {
+    const checkFavorite = async () => {
+      if (isAuth) {
+        try {
+          const usersRef = ref(database, "users");
+          const userQuery = query(
+            usersRef,
+            orderByChild("email"),
+            equalTo(email)
+          );
+          const snapshot = await get(userQuery);
+          if (snapshot.exists()) {
+            const userData = snapshot.val();
+            const userId = Object.keys(userData)[0];
+            const favoritesRef = ref(database, `users/${userId}/favorites`);
+            const favoriteQuery = query(
+              favoritesRef,
+              orderByChild("teacherId"),
+              equalTo(id)
+            );
+            const favoriteSnapshot = await get(favoriteQuery);
+            if (favoriteSnapshot.exists()) {
+              setIsFavorite(true);
+              setFavoriteKey(Object.keys(favoriteSnapshot.val())[0]);
+            }
+          }
+        } catch (error) {
+          console.error("Error checking favorite:", error);
+        }
+      }
+    };
+
+    checkFavorite();
+  }, [email, id, isAuth]);
+
   const handleReadMore = () => {
     setIsExpanded(!isExpanded);
   };
 
-  // const toggleFavorite = () => {
-  //     const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  //     let updatedFavorites;
+  const handleToggleFavorite = async () => {
+    if (!isAuth) {
+      toast.error("You must be logged in to add favorites");
+      return;
+    }
 
-  //     if (isFavorite) {
-  //       updatedFavorites = storedFavorites.filter((id) => id !== _id);
-  //     } else {
-  //       updatedFavorites = [...storedFavorites, _id];
-  //     }
+    try {
+      if (isFavorite) {
+        await removeFavoriteFromUserFirebase(email, id);
+        setIsFavorite(false);
+        toast.success("Teacher removed from favorites!");
+        setFavoriteKey(null);
+      } else {
+        const favoriteData = {
+          teacherId: id,
+          name,
+          surname,
+          languages,
+          levels,
+          rating,
+          reviews,
+          price_per_hour,
+          lessons_done,
+          avatar_url,
+          lesson_info,
+          conditions,
+          experience,
+        };
 
-  //     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-  //     setIsFavorite(!isFavorite);
+        const result = await addFavoriteToUserFirebase(email, favoriteData);
+        setIsFavorite(true);
+        toast.success("Teacher added to favorites!");
+        setFavoriteKey(result.id);
+      }
 
-  //     if (onFavoriteToggle) {
-  //       onFavoriteToggle();
-  //     }
-  //   };
+      if (onFavoriteToggle) {
+        onFavoriteToggle(id);
+      }
+    } catch (error) {
+      toast.error("Failed to update favorite");
+      console.error("Error updating favorite:", error);
+    }
+  };
 
   return (
     <li className={`${css.card} ${isExpanded ? css.expanded : ""}`}>
@@ -80,7 +151,11 @@ const TeacherCard = ({ teacher }) => {
               Price / 1 hour: <span>{price_per_hour}$</span>
             </li>
           </ul>
-          <button className={css.heardBtn} type="button">
+          <button
+            className={css.heardBtn}
+            type="button"
+            onClick={handleToggleFavorite}
+          >
             <svg className={css.favoriteToggleIcon} width="24px" height="24px">
               <use
                 xlinkHref={`${sprite}#${isFavorite ? "icon-hover" : "normal"}`}
@@ -117,11 +192,7 @@ const TeacherCard = ({ teacher }) => {
           </button>
         )}
         {!isExpanded && <Levels levels={levels} />}
-        {isExpanded && (
-          <ReadMore
-            teacher={teacher}
-          />
-        )}
+        {isExpanded && <ReadMore teacher={teacher} />}
       </div>
     </li>
   );

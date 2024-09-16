@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../hooks/use-auth';
 
 const Navigation = () => {
-  const {isAuth, email} = useAuth();
+  const {isAuth} = useAuth();
 
   return isAuth ? (
     <nav className={css.navigation}>

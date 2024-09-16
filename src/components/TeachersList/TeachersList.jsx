@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import {
   selectTeachers,
   selectLoading,
   selectError,
   selectLastKey,
+  selectHasFetched,
 } from "../../redux/selectors";
 import { fetchTeachers } from "../../redux/teachersOps";
 import css from "./TeachersList.module.css";
@@ -16,10 +17,16 @@ const TeachersList = () => {
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const lastKey = useSelector(selectLastKey);
+  const hasFetched = useSelector(selectHasFetched);
+
+  const hasFetchedInitialTeachers = useRef(false);
 
   useEffect(() => {
-    dispatch(fetchTeachers({ lastKey: null }));
-  }, [dispatch]);
+    if (!hasFetchedInitialTeachers.current && !hasFetched) {
+      dispatch(fetchTeachers({ lastKey: null }));
+      hasFetchedInitialTeachers.current = true;
+    }
+  }, [dispatch, hasFetched]);
 
   const handleLoadMore = () => {
     if (!loading) {
