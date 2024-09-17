@@ -8,13 +8,10 @@ import { selectFavoriteTeachers } from "../../redux/selectors";
 import { useSelector } from "react-redux";
 
 const TeacherCard = ({ teacher }) => {
-  // const [isFavorite, setIsFavorite] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  // const [favoriteKey, setFavoriteKey] = useState(null);
   const favoriteTeachers = useSelector(selectFavoriteTeachers);
   const [isFavorite, setIsFavorite] = useState(false);
 
-  // const { isAuth, email } = useAuth();
   useEffect(() => {
     setIsFavorite(favoriteTeachers.some(favTeacher => favTeacher.id === teacher.id));
   }, [favoriteTeachers, teacher.id]);

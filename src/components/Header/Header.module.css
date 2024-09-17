@@ -1,5 +1,68 @@
+
 .header {
   display: flex;
-  margin: 20px 64px;
-  width: 1312px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 64px;
+  background-color: #fff; 
+  position: relative; 
+  z-index: 1000;
+  width: 100%; 
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.burgerButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  z-index: 1001; 
+}
+
+.burgerButton svg {
+  fill: #121417; 
+}
+
+.menu {
+  display: flex;
+  gap: 268px; 
+  align-items: center;
+}
+
+.menuOpen {
+  display: flex; 
+}
+
+@media (max-width: 1439px) {
+  .menu {
+    display: none; 
+    gap: 28px;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: auto; 
+    background-color: #fff; 
+    border: none; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    flex-direction: column; 
+    padding: 20px; 
+    transform: translateX(-100%); 
+    opacity: 0; 
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1000; 
+  }
+
+  .menuOpen {
+    display: flex; 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+
+  .burgerButton {
+    display: block; 
+  }
 }

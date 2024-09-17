@@ -50,3 +50,27 @@
   line-height: 125%;
   color: #121417;
 }
+
+@media (max-width: 1439px) {
+  .authButtonsWrap {
+    flex-direction: column;
+  }
+  .registrationButton {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: #121417;
+    background-color: transparent;
+    border-radius: none;
+    padding: 0;
+    width: 166px;
+    height: 48px;
+    transition: color 0.5s ease;
+  }
+
+  .registrationButton:hover,
+  .registrationButton:active {
+    color: rgba(18, 20, 23, 0.2);
+    background-color: transparent;
+  }
+}

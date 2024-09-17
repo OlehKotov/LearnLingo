@@ -114,3 +114,35 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+@media (max-width: 1439px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .getBlock {
+    width: 100%;
+    height: 530px;
+    background-color: #f8f8f8;
+    padding: 98px 108px 98px 64px;
+  }
+  
+  .getBlockHeader {
+    width: auto;
+  }
+ 
+  .getBlockText {
+    width: auto;
+  }
+  
+  .getBlockButton {
+    margin-top: 15px;
+  }
+  
+  .imageBlock {
+    width: 100%;
+  }
+
+}
+
+

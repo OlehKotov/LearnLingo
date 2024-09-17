@@ -3,7 +3,7 @@
   border: 1.5px dashed #f4c550;
   border-radius: 30px;
   width: 1312px;
-  height: 116px;
+  height: auto;
 }
 
 .tutorList {
@@ -35,4 +35,13 @@
   letter-spacing: -0.02em;
   color: rgba(18, 20, 23, 0.7);
   min-width: 74px;
+}
+
+@media (max-width: 1439px) {
+  .footer {
+    width: auto;
+  }
+  .tutorList {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }

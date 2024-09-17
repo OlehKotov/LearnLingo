@@ -31,3 +31,9 @@
 .loadMoreButton:active {
   background-color: #ffdc86;
 }
+
+@media (max-width: 1349px) {
+  .section {
+    padding: 64px;
+  }
+}

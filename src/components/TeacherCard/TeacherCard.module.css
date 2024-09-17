@@ -5,7 +5,7 @@
   grid-template-columns: 120px 1fr;
   gap: 48px;
   border-radius: 24px;
-  width: 1184px;
+  max-width: 1184px;
   height: 328px;
   background-color: #fff;
 }
@@ -126,4 +126,41 @@
   text-decoration-skip-ink: none;
   color: #121417;
   margin-top: 16px;
+}
+
+@media (max-width: 1349px) {
+  .card {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+    grid-template-columns: 1fr 1fr; 
+    height: auto;
+  }
+
+  /* .languagesList {
+    margin-left: 0;
+    flex-direction: column; 
+    gap: 16px;
+  } */
+
+  /* .languagesItem {
+    justify-content: start;
+  } */
+
+  .name {
+    font-size: 20px; 
+  }
+
+  .teacherInfoList {
+    margin-top: 16px;
+  }
+
+  .teacherInfoItem {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .readMoreBtn {
+    font-size: 14px; /* Уменьшаем размер шрифта кнопки */
+  }
 }
