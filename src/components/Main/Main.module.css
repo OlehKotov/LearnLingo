@@ -126,23 +126,20 @@
     background-color: #f8f8f8;
     padding: 98px 108px 98px 64px;
   }
-  
+
   .getBlockHeader {
     width: auto;
   }
- 
+
   .getBlockText {
     width: auto;
   }
-  
+
   .getBlockButton {
     margin-top: 15px;
   }
-  
+
   .imageBlock {
     width: 100%;
   }
-
 }
-
-

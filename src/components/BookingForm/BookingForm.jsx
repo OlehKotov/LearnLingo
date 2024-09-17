@@ -17,9 +17,9 @@ const BookingForm = ({ teacher, onClose }) => {
   } = useForm({
     resolver: yupResolver(bookValidationSchema),
     defaultValues: {
-      name: '', 
-      email: '', 
-      phone: '', 
+      name: "",
+      email: "",
+      phone: "",
       reason: "Career and business",
     },
   });

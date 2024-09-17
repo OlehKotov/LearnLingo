@@ -13,7 +13,9 @@ const TeacherCard = ({ teacher }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    setIsFavorite(favoriteTeachers.some(favTeacher => favTeacher.id === teacher.id));
+    setIsFavorite(
+      favoriteTeachers.some((favTeacher) => favTeacher.id === teacher.id)
+    );
   }, [favoriteTeachers, teacher.id]);
 
   const {
@@ -71,7 +73,7 @@ const TeacherCard = ({ teacher }) => {
               Price / 1 hour: <span>{price_per_hour}$</span>
             </li>
           </ul>
-          <HeardButton teacher={teacher}/>
+          <HeardButton teacher={teacher} />
         </div>
         <p className={css.name}>
           {name} {surname}

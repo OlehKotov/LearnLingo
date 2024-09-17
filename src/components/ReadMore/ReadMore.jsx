@@ -31,8 +31,6 @@ const ReadMore = ({ teacher }) => {
     setModalIsOpen(false);
   };
 
-
-
   return (
     <div>
       <p className={css.experience}>{experience}</p>
@@ -59,9 +57,11 @@ const ReadMore = ({ teacher }) => {
         ))}
       </div>
       <Levels levels={levels} />
-      <button className={css.bookTrialLessonBtn} onClick={openModal} >Book trial lesson</button>
-      <BaseModal isOpen={modalIsOpen} onRequestClose={closeModal} >
-        <BookingForm teacher={teacher} onClose={closeModal}/>
+      <button className={css.bookTrialLessonBtn} onClick={openModal}>
+        Book trial lesson
+      </button>
+      <BaseModal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <BookingForm teacher={teacher} onClose={closeModal} />
       </BaseModal>
     </div>
   );

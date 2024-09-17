@@ -133,22 +133,12 @@
     width: 100%;
     max-width: 100%;
     padding: 16px;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     height: auto;
   }
 
-  /* .languagesList {
-    margin-left: 0;
-    flex-direction: column; 
-    gap: 16px;
-  } */
-
-  /* .languagesItem {
-    justify-content: start;
-  } */
-
   .name {
-    font-size: 20px; 
+    font-size: 20px;
   }
 
   .teacherInfoList {
@@ -161,6 +151,6 @@
   }
 
   .readMoreBtn {
-    font-size: 14px; /* Уменьшаем размер шрифта кнопки */
+    font-size: 14px;
   }
 }

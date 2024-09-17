@@ -4,6 +4,7 @@ import css from "./FavoritesList.module.css";
 import TeacherCard from "../TeacherCard/TeacherCard";
 import { useEffect } from "react";
 import { fetchFavoriteTeachers } from "../../redux/favoritesSlice";
+import { RotatingLines } from "react-loader-spinner";
 
 const FavoritesList = () => {
   const dispatch = useDispatch();
@@ -15,25 +16,39 @@ const FavoritesList = () => {
     dispatch(fetchFavoriteTeachers(email));
   }, [dispatch, email]);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
   if (error) {
     return <p>Error: {error}</p>;
   }
 
   return (
     <section className={css.section}>
-      <ul className={css.teachersList}>
-        {favoriteTeachers.length > 0 ? (
-          favoriteTeachers.map((teacher) => (
-            <TeacherCard key={teacher.id} teacher={teacher} />
-          ))
-        ) : (
-          <div className={css.noResults}>No teachers found</div>
-        )}
-      </ul>
+      {loading ? (
+        <div className={css.loaderWrapper}>
+          <RotatingLines
+            visible={true}
+            height="96"
+            width="96"
+            color="grey"
+            strokeWidth="5"
+            animationDuration="0.75"
+            ariaLabel="rotating-lines-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+        </div>
+      ) : error ? (
+        <p>Error: {error}</p>
+      ) : (
+        <ul className={css.teachersList}>
+          {favoriteTeachers.length > 0 ? (
+            favoriteTeachers.map((teacher) => (
+              <TeacherCard key={teacher.id} teacher={teacher} />
+            ))
+          ) : (
+            <div className={css.noResults}>No teachers found</div>
+          )}
+        </ul>
+      )}
     </section>
   );
 };

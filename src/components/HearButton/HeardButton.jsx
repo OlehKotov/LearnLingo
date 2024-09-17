@@ -6,38 +6,67 @@ import {
   addFavoriteTeacher,
   removeFavoriteTeacher,
 } from "../../redux/favoritesSlice";
-import { useAuth } from '../../hooks/use-auth';
+import { useAuth } from "../../hooks/use-auth";
 import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 
 const HeardButton = ({ teacher }) => {
   const dispatch = useDispatch();
   const favoriteTeachers = useSelector(selectFavoriteTeachers);
   const userEmail = useSelector(selectUserEmail);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const {isAuth} = useAuth();
+  const { isAuth } = useAuth();
 
   const isFavorite = favoriteTeachers.some(
     (favTeacher) => favTeacher.id === teacher.id
   );
 
+  const [isClicked, setIsClicked] = useState(isFavorite);
+
+  useEffect(() => {
+    setIsClicked(isFavorite);
+  }, [isFavorite]);
+
   const handleClick = async () => {
     if (!isAuth) {
-      toast.error("Please Log in and try again.")
+      toast.error("Please Log in and try again.");
       return;
     }
     if (isFavorite) {
-      await dispatch(
+      dispatch(
         removeFavoriteTeacher({ email: userEmail, teacherId: teacher.id })
       );
     } else {
-      await dispatch(addFavoriteTeacher({ email: userEmail, teacher }));
+      dispatch(addFavoriteTeacher({ email: userEmail, teacher }));
+    }
+  };
+
+  const handleButtonClick = () => {
+    setIsClicked(!isClicked);
+    handleClick();
+  };
+
+  const getIconName = () => {
+    if (isClicked) {
+      return "icon-hover";
+    } else if (isHovered) {
+      return "iconizer-heart";
+    } else {
+      return "normal";
     }
   };
 
   return (
-    <button className={css.heardBtn} type="button" onClick={handleClick}>
+    <button
+      className={css.heardBtn}
+      type="button"
+      onClick={handleButtonClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <svg className={css.favoriteToggleIcon} width="24px" height="24px">
-        <use xlinkHref={`${sprite}#${isFavorite ? "icon-hover" : "normal"}`} />
+        <use xlinkHref={`${sprite}#${getIconName()}`} />
       </svg>
     </button>
   );

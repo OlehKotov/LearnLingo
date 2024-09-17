@@ -16,7 +16,7 @@ const Main = () => {
           highly qualified and experienced tutors.
         </p>
         <NavLink to="/teachers" className={css.getBlockButton}>
-        Get started
+          Get started
         </NavLink>
       </div>
       <div className={css.imageBlock}>
