@@ -9,31 +9,46 @@ import {
 import { database } from "./../firebase.js";
 
 export const removeFavoriteFromUserFirebase = async (email, teacherId) => {
-    const usersRef = ref(database, 'users');
-    const userQuery = query(usersRef, orderByChild('email'), equalTo(email));
-  
+  try {
+    const usersRef = ref(database, "users");
+    const userQuery = query(usersRef, orderByChild("email"), equalTo(email));
     const snapshot = await get(userQuery);
-  
+
     if (snapshot.exists()) {
       const userData = snapshot.val();
       const userId = Object.keys(userData)[0];
-  
+
       const favoritesRef = ref(database, `users/${userId}/favorites`);
-      const favoriteQuery = query(favoritesRef, orderByChild('teacherId'), equalTo(teacherId));
-      const favoriteSnapshot = await get(favoriteQuery);
-  
+      const favoriteSnapshot = await get(favoritesRef);
+
       if (favoriteSnapshot.exists()) {
         const favoriteData = favoriteSnapshot.val();
-        const favoriteKey = Object.keys(favoriteData)[0];
-  
-        const favoriteRef = ref(database, `users/${userId}/favorites/${favoriteKey}`);
-        await remove(favoriteRef);
-  
-        return favoriteKey;
+        const favoritesList = Object.entries(favoriteData);
+
+
+        const favoriteKey = favoritesList.find(
+          ([key, value]) => value.id === teacherId
+        )?.[0];
+
+
+        if (favoriteKey) {
+          const favoriteRef = ref(
+            database,
+            `users/${userId}/favorites/${favoriteKey}`
+          );
+          await remove(favoriteRef);
+          return favoriteKey;
+        } else {
+          throw new Error("Favorite not found");
+        }
       } else {
-        throw new Error('Favorite not found');
+        throw new Error("No favorites found");
       }
     } else {
-      throw new Error('User not found');
+      throw new Error("User not found");
     }
-  };
+  } catch (error) {
+    console.error("Error removing favorite:", error.message);
+    throw error;
+  }
+};

@@ -6,3 +6,7 @@ export const selectHasFetched = (state) => state.teachers.hasFetched;
 export const selectFavoriteTeachers = (state) => state.favorites.favoriteTeachers;
 
 export const selectUser = (state) => state.user.user;
+export const selectUserEmail = (state) => state.user.email;
+export const selectUserId = (state) => state.user.id;
+
+
