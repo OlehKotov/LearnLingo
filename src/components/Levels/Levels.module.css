@@ -24,9 +24,7 @@
 
 @media (max-width: 1349px) {
   .levelList {
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }

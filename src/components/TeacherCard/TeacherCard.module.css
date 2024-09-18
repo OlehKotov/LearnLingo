@@ -128,10 +128,9 @@
   margin-top: 16px;
 }
 
-@media (max-width: 1349px) {
+@media (max-width: 1439px) {
   .card {
     width: 100%;
-    max-width: 100%;
     padding: 16px;
     grid-template-columns: 1fr 1fr;
     height: auto;
@@ -152,5 +151,17 @@
 
   .readMoreBtn {
     font-size: 14px;
+  }
+
+  .languagesList {
+    margin-left: 25px;
+  }
+  
+  .contentContainer {
+    width: 100%;
+  }
+
+  .teacherInfo {
+    width: 100%;
   }
 }

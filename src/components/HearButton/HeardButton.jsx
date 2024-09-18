@@ -29,10 +29,6 @@ const HeardButton = ({ teacher }) => {
   }, [isFavorite]);
 
   const handleClick = async () => {
-    if (!isAuth) {
-      toast.error("Please Log in and try again.");
-      return;
-    }
     if (isFavorite) {
       dispatch(
         removeFavoriteTeacher({ email: userEmail, teacherId: teacher.id })
@@ -43,6 +39,10 @@ const HeardButton = ({ teacher }) => {
   };
 
   const handleButtonClick = () => {
+    if (!isAuth) {
+      toast.error("Please Log in and try again.");
+      return;
+    }
     setIsClicked(!isClicked);
     handleClick();
   };

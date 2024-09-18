@@ -46,7 +46,7 @@ const TeacherCard = ({ teacher }) => {
           <use xlinkHref={`${sprite}#icon-Group`} />
         </svg>
       </div>
-      <div>
+      <div className={css.contentContainer}>
         <div className={css.languagesContainer}>
           <p className={css.languagesText}>Languages</p>
           <ul className={css.languagesList}>

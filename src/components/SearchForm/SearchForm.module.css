@@ -1,6 +1,6 @@
 .form {
   display: flex;
-  
+
   gap: 20px;
   margin-bottom: 32px;
 
@@ -23,7 +23,7 @@
   width: 221px;
   border-radius: 14px;
   border: none;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.11111;
