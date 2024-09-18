@@ -1,6 +1,8 @@
 import React from "react";
 import css from "./Main.module.css";
 import { NavLink } from "react-router-dom";
+import lion from '../../assets/images/lion.png';
+import macbook from '../../assets/images/macbook.png';
 
 const Main = () => {
   return (
@@ -21,12 +23,12 @@ const Main = () => {
       </div>
       <div className={css.imageBlock}>
         <img
-          src="/public/images/lion.png"
+          src={lion}
           alt="Lion"
           className={css.imageBlockLion}
         />
         <img
-          src="/public/images/macbook.png"
+          src={macbook}
           alt="Macbook"
           className={css.imageBlockMacbook}
         />
