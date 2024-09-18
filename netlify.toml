@@ -1,0 +1,6 @@
+[build]
+  publish = "build"  # or the directory where your build files are located
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
