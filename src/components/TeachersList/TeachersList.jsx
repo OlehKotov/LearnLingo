@@ -1,21 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
 import {
-  selectTeachers,
   selectLoading,
   selectError,
   selectLastKey,
   selectHasFetched,
+  selectFilteredTeachers,
 } from "../../redux/selectors";
 import { fetchTeachers } from "../../redux/teachersOps";
 import css from "./TeachersList.module.css";
 import TeacherCard from "../TeacherCard/TeacherCard";
 import { toast } from "react-toastify";
 import { RotatingLines } from "react-loader-spinner";
+import SearchForm from "../SearchForm/SearchForm";
 
 const TeachersList = () => {
   const dispatch = useDispatch();
-  const teachers = useSelector(selectTeachers);
+  const teachers = useSelector(selectFilteredTeachers);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const lastKey = useSelector(selectLastKey);
@@ -42,6 +43,7 @@ const TeachersList = () => {
 
   return (
     <section className={css.section}>
+      <SearchForm />
       {loading && teachers.length === 0 && (
         <div className={css.loader}>
           <RotatingLines
@@ -64,7 +66,7 @@ const TeachersList = () => {
             ))
           : !loading && <div className={css.noResults}>No teachers found</div>}
       </ul>
-      {teachers.length > 0 && (
+      {teachers.length > 0 && lastKey && (
         <button
           className={css.loadMoreButton}
           onClick={handleLoadMore}

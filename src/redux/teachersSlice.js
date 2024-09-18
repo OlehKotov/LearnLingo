@@ -9,8 +9,24 @@ const teachersSlice = createSlice({
     error: null,
     lastVisible: null,
     hasFetched: false,
+    filters: {
+      languages: null,
+      levels: null,
+      price_per_hour: null,
+    },
   },
-  reducers: {},
+  reducers: {
+    setFilters: (state, action) => {
+      state.filters = { ...state.filters, ...action.payload };
+    },
+    clearFilters: (state) => {
+      state.filters = {
+        languages: null,
+        levels: null,
+        price_per_hour: null,
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchTeachers.pending, (state) => {
@@ -20,7 +36,7 @@ const teachersSlice = createSlice({
       .addCase(fetchTeachers.fulfilled, (state, action) => {
         state.loading = false;
         state.items = [...state.items, ...action.payload.teachers];
-        state.lastKey = action.payload.lastKey;
+        state.lastVisible = action.payload.lastKey;
         state.hasFetched = true;
       })
       .addCase(fetchTeachers.rejected, (state, action) => {
@@ -29,5 +45,7 @@ const teachersSlice = createSlice({
       });
   },
 });
+
+export const { setFilters, clearFilters } = teachersSlice.actions;
 
 export default teachersSlice.reducer;

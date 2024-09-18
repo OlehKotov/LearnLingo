@@ -1,86 +1,64 @@
-import React, { useState } from "react";
 import css from "./SearchForm.module.css";
-import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
-
-const languagesOptions = [
-  { value: "French", label: "French" },
-  { value: "English", label: "English" },
-  { value: "German", label: "German" },
-  { value: "Ukrainian", label: "Ukrainian" },
-  { value: "Polish", label: "Polish" },
-];
-
-const levelOptions = [
-  { value: "A1 Beginner", label: "A1 Beginner" },
-  { value: "A2 Elementary", label: "A2 Elementary" },
-  { value: "B1 Intermediate", label: "B1 Intermediate" },
-  { value: "B2 Upper-Intermediate", label: "B2 Upper-Intermediate" },
-];
-
-const priceOptions = [
-  { value: 10, label: "10" },
-  { value: 20, label: "20" },
-  { value: 30, label: "30" },
-  { value: 40, label: "40" },
-];
+import { useDispatch } from "react-redux";
+import { setFilters } from "../../redux/teachersSlice";
+import {
+  languagesOptions,
+  levelOptions,
+  priceOptions,
+} from "../../constants/searchConstants";
 
 const SearchForm = () => {
-  const { control, handleSubmit } = useForm();
+  const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const handleSelectChange = (selectedOption, { name }) => {
+    const value = Array.isArray(selectedOption)
+      ? selectedOption.map((option) => option.value)
+      : selectedOption.value;
+
+    dispatch(setFilters({ [name]: value }));
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label>Languages</label>
-        <Controller
+    <form className={css.form}>
+      <label className={css.label}>
+        Languages
+        <Select
+          className={css.select}
           name="languages"
-          control={control}
-          render={({ field }) => (
-            <Select
-              {...field}
-              isMulti
-              options={languagesOptions}
-              placeholder="Select languages"
-            />
-          )}
+          onChange={handleSelectChange}
+          components={{
+            IndicatorSeparator: () => null,
+          }}
+          options={languagesOptions}
+          isMulti
         />
-      </div>
-
-      <div>
-        <label>Level of Knowledge</label>
-        <Controller
-          name="level"
-          control={control}
-          render={({ field }) => (
-            <Select
-              {...field}
-              options={levelOptions}
-              placeholder="Select level of knowledge"
-            />
-          )}
+      </label>
+      <label className={css.label}>
+        Level of Knowledge
+        <Select
+          className={css.select}
+          name="levels"
+          onChange={handleSelectChange}
+          components={{
+            IndicatorSeparator: () => null,
+          }}
+          options={levelOptions}
+          isMulti
         />
-      </div>
-
-      <div>
-        <label>Price</label>
-        <Controller
-          name="price"
-          control={control}
-          render={({ field }) => (
-            <Select
-              {...field}
-              options={priceOptions}
-              placeholder="Select price"
-            />
-          )}
+      </label>
+      <label className={css.label}>
+        Price
+        <Select
+          className={css.select}
+          name="price_per_hour"
+          onChange={handleSelectChange}
+          components={{
+            IndicatorSeparator: () => null,
+          }}
+          options={priceOptions}
         />
-      </div>
-
-      <button type="submit">Search</button>
+      </label>
     </form>
   );
 };
