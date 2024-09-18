@@ -21,12 +21,12 @@ const Main = () => {
       </div>
       <div className={css.imageBlock}>
         <img
-          src="/assets/images/lion.png"
+          src="./src/assets/images/lion.png"
           alt="Lion"
           className={css.imageBlockLion}
         />
         <img
-          src="/assets/images/macbook.png"
+          src="./src/assets/images/macbook.png"
           alt="Macbook"
           className={css.imageBlockMacbook}
         />
