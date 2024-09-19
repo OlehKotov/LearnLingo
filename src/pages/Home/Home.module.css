@@ -1,0 +1,15 @@
+.container {
+    padding: 32px 64px;
+    max-width: 1440px;
+}
+
+@media (max-width: 1439px) {
+    .home {
+        position: relative;
+    }
+    .container {
+        padding: 10px 16px;
+        width: auto;
+        position: relative;
+    }
+}

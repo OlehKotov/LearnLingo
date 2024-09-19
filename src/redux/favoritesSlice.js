@@ -34,7 +34,11 @@ const favoritesSlice = createSlice({
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    clearFavoriteTeachers(state) {
+      state.favoriteTeachers = [];
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchFavoriteTeachers.pending, (state) => {
@@ -60,4 +64,5 @@ const favoritesSlice = createSlice({
   },
 });
 
+export const { clearFavoriteTeachers } = favoritesSlice.actions;
 export default favoritesSlice.reducer;

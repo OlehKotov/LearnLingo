@@ -1,14 +1,18 @@
-import React from 'react'
-import TeachersList from '../../components/TeachersList/TeachersList'
+import React from "react";
+import TeachersList from "../../components/TeachersList/TeachersList";
 import DocumentTitle from "../../components/DocumentTitle/DocumentTitle";
+import Header from "../../components/Header/Header";
 
 const Teachers = () => {
   return (
     <div>
+      <Header />
       <DocumentTitle>Teachers Catalog</DocumentTitle>
-      <TeachersList />
+      <div>
+        <TeachersList />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Teachers
+export default Teachers;

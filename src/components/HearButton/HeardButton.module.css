@@ -1,4 +1,11 @@
 .heardBtn {
   margin-left: 64px;
+  position: relative;
 }
 
+@media (max-width: 1439px) {
+  .heardBtn {
+    margin-left: 0;
+    width: 24px;
+  }
+}

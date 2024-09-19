@@ -5,7 +5,7 @@
   grid-template-columns: 120px 1fr;
   gap: 48px;
   border-radius: 24px;
-  max-width: 1184px;
+  width: 1184px;
   height: 328px;
   background-color: #fff;
 }
@@ -57,7 +57,7 @@
 .languagesItem {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
   position: relative;
   font-weight: 500;
   font-size: 16px;
@@ -132,12 +132,14 @@
   .card {
     width: 100%;
     padding: 16px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     height: auto;
+    gap: 5px;
   }
 
   .name {
     font-size: 20px;
+    margin-top: 16px;
   }
 
   .teacherInfoList {
@@ -154,9 +156,17 @@
   }
 
   .languagesList {
-    margin-left: 25px;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 0;
   }
-  
+
+  .languagesContainer {
+    flex-direction: column;
+    justify-content: start;
+    gap: 15px;
+  }
+
   .contentContainer {
     width: 100%;
   }

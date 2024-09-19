@@ -1,5 +1,5 @@
 .footer {
-  margin: 24px 64px 32px 64px;
+  margin-top: 24px;
   border: 1.5px dashed #f4c550;
   border-radius: 30px;
   width: 1312px;
@@ -43,5 +43,13 @@
   }
   .tutorList {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    padding: 20px 20px;
+    justify-content: center;
+    gap: 20px;
+  }
+  .tutorItem {
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
   }
 }

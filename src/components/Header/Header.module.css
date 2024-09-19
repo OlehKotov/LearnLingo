@@ -1,14 +1,17 @@
 .header {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  background-color: #fff;
+  width: 100%;
+  max-width: 1440px;
+}
+
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 64px;
-  background-color: #fff;
   position: relative;
-  z-index: 1000;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
+  padding: 0 128px;
 }
 
 .burgerButton {
@@ -36,6 +39,19 @@
 }
 
 @media (max-width: 1439px) {
+  .header {
+    padding-top: 20px;
+    width: auto;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .container {
+    padding: 0 16px;
+  }
+
   .menu {
     display: none;
     gap: 28px;

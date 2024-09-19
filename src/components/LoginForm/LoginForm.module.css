@@ -86,3 +86,23 @@
   transform: translateY(-40%);
   cursor: pointer;
 }
+
+@media (max-width: 1439px) {
+  .container {
+    padding: 64px 15px;
+  }
+
+  .inputWrapper {
+    width: 100%;
+  }
+
+  .button {
+    border-radius: 12px;
+    padding: 0;
+    width: 100%;
+  }
+
+  .loginInput {
+    width: 100%;
+  }
+}

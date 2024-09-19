@@ -45,7 +45,7 @@ const TeachersList = () => {
     <section className={css.section}>
       <SearchForm />
       {loading && teachers.length === 0 && (
-        <div className={css.loader}>
+        <div className={css.loaderWrapper}>
           <RotatingLines
             visible={true}
             height="96"

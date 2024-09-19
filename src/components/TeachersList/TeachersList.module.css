@@ -1,8 +1,9 @@
 .section {
   background-color: #eeeeee;
-  padding: 128px;
+  padding: 96px 128px;
   display: flex;
   flex-direction: column;
+  max-width: 1440px;
 }
 
 .teachersList {
@@ -32,12 +33,12 @@
   background-color: #ffdc86;
 }
 
-.loader {
+.loaderWrapper {
   margin: 0 auto;
 }
 
-@media (max-width: 1349px) {
+@media (max-width: 1439px) {
   .section {
-    padding: 64px;
+    padding: 24px;
   }
 }

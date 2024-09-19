@@ -10,8 +10,8 @@
   z-index: 1010;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   pointer-events: auto;
-  max-height: 90vh; 
-  overflow: auto; 
+  max-height: 90vh;
+  overflow: auto;
   overflow-x: hidden;
 }
 
@@ -43,4 +43,21 @@ body.modal-open {
 }
 .modalContainer::-webkit-scrollbar-thumb:hover {
   background: #777;
+}
+
+@media (max-width: 1439px) {
+}
+
+@media (max-width: 768px) {
+  .modalContainer {
+    max-width: 90%;
+    width: 90%;
+  }
+}
+
+@media (max-width: 320px) {
+  .modalContainer {
+    max-width: 100%;
+    padding: 10px;
+  }
 }

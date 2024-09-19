@@ -139,7 +139,7 @@ input[type="radio"]:checked::before {
   border: 1px solid rgba(18, 20, 23, 0.1);
   border-radius: 12px;
   padding: 16px 18px 16px 18px;
-  width: 472px;
+  width: 100%;
   height: 54px;
   outline: none;
   background-color: transparent;
@@ -180,4 +180,24 @@ input[type="radio"]:checked::before {
   left: 0;
   top: 90%;
   transform: translateY(4px);
+}
+
+@media (max-width: 1439px) {
+  .container {
+    padding: 64px 15px;
+  }
+
+  .bookingInput {
+    width: 100%;
+  }
+
+  .button {
+    border-radius: 12px;
+    padding: 0;
+    width: 100%;
+  }
+
+  .teacherName {
+    font-size: 20px;
+  }
 }

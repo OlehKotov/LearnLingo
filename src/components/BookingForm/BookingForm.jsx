@@ -116,8 +116,8 @@ const BookingForm = ({ teacher, onClose }) => {
           )}
         </div>
 
-        <div className={css.inputContainer}>
-          <div className={css.inputWrapper}>
+        <ul className={css.inputContainer}>
+          <li className={css.inputWrapper}>
             <Controller
               name="name"
               control={control}
@@ -133,9 +133,9 @@ const BookingForm = ({ teacher, onClose }) => {
             {errors.name && (
               <div className={css.error}>{errors.name.message}</div>
             )}
-          </div>
+          </li>
 
-          <div className={css.inputWrapper}>
+          <li className={css.inputWrapper}>
             <Controller
               name="email"
               control={control}
@@ -151,9 +151,9 @@ const BookingForm = ({ teacher, onClose }) => {
             {errors.email && (
               <div className={css.error}>{errors.email.message}</div>
             )}
-          </div>
+          </li>
 
-          <div className={css.inputWrapper}>
+          <li className={css.inputWrapper}>
             <Controller
               name="phone"
               control={control}
@@ -169,8 +169,8 @@ const BookingForm = ({ teacher, onClose }) => {
             {errors.phone && (
               <div className={css.error}>{errors.phone.message}</div>
             )}
-          </div>
-        </div>
+          </li>
+        </ul>
 
         <button type="submit" className={css.button} disabled={isSubmitting}>
           Book

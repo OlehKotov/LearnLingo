@@ -28,3 +28,9 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+@media (max-width: 400px) {
+  .levelList {
+    grid-template-columns: 1fr;
+  }
+}

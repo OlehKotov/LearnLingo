@@ -1,8 +1,8 @@
 import React from "react";
 import css from "./Main.module.css";
 import { NavLink } from "react-router-dom";
-import lion from '../../assets/images/lion.png';
-import macbook from '../../assets/images/macbook.png';
+import lion from "../../assets/images/lion.png";
+import macbook from "../../assets/images/macbook.png";
 
 const Main = () => {
   return (
@@ -22,16 +22,8 @@ const Main = () => {
         </NavLink>
       </div>
       <div className={css.imageBlock}>
-        <img
-          src={lion}
-          alt="Lion"
-          className={css.imageBlockLion}
-        />
-        <img
-          src={macbook}
-          alt="Macbook"
-          className={css.imageBlockMacbook}
-        />
+        <img src={lion} alt="Lion" className={css.imageBlockLion} />
+        <img src={macbook} alt="Macbook" className={css.imageBlockMacbook} />
       </div>
     </section>
   );

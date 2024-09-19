@@ -27,23 +27,27 @@ const Header = () => {
 
   return (
     <header className={css.header}>
-      <Logo />
-      <button className={css.burgerButton} onClick={toggleMenu}>
-        <svg width="24" height="24" viewBox="0 0 24 24">
-          <path
-            d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M3 6h18M3 12h18M3 18h18"}
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-      </button>
-      <div
-        className={`${css.menu} ${isMenuOpen ? css.menuOpen : ""}`}
-        ref={menuRef}
-      >
-        <Navigation />
-        <AuthButtons />
+      <div className={css.container}>
+        <Logo />
+        <button className={css.burgerButton} onClick={toggleMenu}>
+          <svg width="32" height="32" viewBox="0 0 24 24">
+            <path
+              d={
+                isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M3 6h18M3 12h18M3 18h18"
+              }
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+        <div
+          className={`${css.menu} ${isMenuOpen ? css.menuOpen : ""}`}
+          ref={menuRef}
+        >
+          <Navigation />
+          <AuthButtons />
+        </div>
       </div>
     </header>
   );
