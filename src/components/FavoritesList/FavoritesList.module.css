@@ -1,8 +1,8 @@
 .section {
-  background-color: #eeeeee;
   padding: 96px 128px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .teachersList {

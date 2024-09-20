@@ -1,0 +1,16 @@
+.favorites {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .container {
+    background-color: #eeeeee;
+    width: 100%;
+  }
+  
+  @media (max-width: 1439px) {
+      .favorites {
+          display: block;
+        }
+    }
